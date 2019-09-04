@@ -30,6 +30,16 @@ export default class Evento extends React.Component {
     };
   }
 
+  ShowMaxAlert = (textEvento) => {
+
+    var TextLength = textEvento.length.toString();
+
+    if (TextLength == 60) {
+      Alert.alert("Desculpe, você digitou o limite máximo de caracteres.")
+      // Put your code here which you want to execute when TextInput entered text reached to 10.
+    }
+  }
+
   showDateTimePicker = () => {
     this.setState({ isDateTimePickerVisible: true });
   };
@@ -47,6 +57,10 @@ export default class Evento extends React.Component {
     console.log("A date has been picked: ", timer);
     this.hideDateTimePicker();
   };
+
+  onChangeHandler(field, value) {
+    this.setState({ [field]: value });
+  }
 
 
   register() {
@@ -102,21 +116,6 @@ export default class Evento extends React.Component {
                     <DateTimePicker
                       isVisible={this.state.isDateTimePickerVisible}
                       onConfirm={this.handleDatePicked}
-                      onCancel={this.hideDateTimePicker}
-                    />
-                  </View>
-                </View>
-
-                 {/*Hora */}
-                 <View style={styles.viewCalendaio}>
-                  <View style={styles.alternativeLayoutButtonContainer}>
-                    <Button
-                      title='Hora'
-                      color='#A1ACB3'
-                      onPress={this.showDateTimePicker} />
-                    <DateTimePicker
-                      isVisible={this.state.isDateTimePickerVisible}
-                      onConfirm={this.handleTimePicked}
                       onCancel={this.hideDateTimePicker}
                     />
                   </View>
@@ -179,7 +178,7 @@ export default class Evento extends React.Component {
                       accessibilityLabel="Salvar a agenda"
                     />
                   </View>
-                  
+
                 </View>
               </KeyboardAvoidingView>
             </View>
@@ -244,7 +243,7 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     padding: 25,
     marginTop: 5,
-    marginBottom:10,
+    marginBottom: 10,
   },
   viewCalendaio: {
     backgroundColor: 'white',
