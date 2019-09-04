@@ -131,13 +131,14 @@ export default class Evento extends React.Component {
                     value={this.state.textEvento}
                   />
                   <Text style={styles.textCamposFormulario}>Prioridade: </Text>
-                  <TextInput
-                    maxLength={60}
-                    placeholder='Prioridade'
-                    style={styles.textInputFormulario}
-                    onChangeText={(textDescricaoEvento) => { this.onChangeHandler('textDescricaoEvento', textDescricaoEvento); this.ShowMaxAlert(textDescricaoEvento) }}
-                    value={this.state.textDescricaoEvento}
-                  />
+                  <View styles={{flex: 4}}>
+                    <View style={styles.alternativeLayoutButtonContainer}>
+                      <View style={styles.viewButtonFour}><Button title="1" color="#FF5E5B" /></View>
+                      <View style={styles.viewButtonFour}><Button title="2" color="#E6F4FF" /></View>
+                      <View style={styles.viewButtonFour}><Button title="3" color="#B3B298" /></View>
+                      <View style={styles.viewButtonFour}><Button title="4" color="#8FA4B3" /></View>
+                    </View>
+                  </View>
                   <Text style={styles.textCamposFormulario}>Data inicial: </Text>
                   <TextInputMask
                     placeholder='DD/MM/AAAA'
@@ -265,7 +266,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
   },
   alternativeLayoutButtonContainer: {
-    margin: 20,
+    margin: 5,
     flexDirection: 'row',
     justifyContent: 'center',
     fontSize: 45,
@@ -274,5 +275,25 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  viewButtonOne: {
+    justifyContent: 'center',
+    flex: 1,
+    marginRight: 5,
+  },
+  viewButtonTwo: {
+    justifyContent: 'center',
+    flex: 2,
+    marginRight: 5,
+  },
+  viewButtonTree: {
+    justifyContent: 'center',
+    flex: 3,
+    marginRight: 5,
+  },
+  viewButtonFour: {
+    justifyContent: 'center',
+    flex: 4,
+    marginRight: 5,
   },
 });
