@@ -80,7 +80,7 @@ export default class Evento extends React.Component {
     return (
       <Fragment>
         <StatusBar translucent={true} backgroundColor={'transparent'} barStyle={'dark-content'} />
-        <SafeAreaView style={{ flex: 1, backgroundColor: '#A1ACB3' }}>
+        <SafeAreaView style={{flex:1, backgroundColor: '#7C9EA5'}} >
           <ScrollView
             contentInsetAdjustmentBehavior="automatic"
             style={styles.scrollView}>
@@ -117,7 +117,7 @@ export default class Evento extends React.Component {
                     value={this.state.textEvento}
                   />
                   <Text style={styles.textCamposFormulario}>Prioridade: </Text>
-                  <View styles={{ flex: 4 }}>
+                  <View styles={{ flex: 4, backgroundColor:'#EAF0F2' }}>
                     <View style={styles.alternativeLayoutButtonContainer}>
                       <View style={styles.viewButtonFour}><Button title="1" color="#FF543F" /></View>
                       <View style={styles.viewButtonFour}><Button title="2" color="#FFD967" /></View>
@@ -195,7 +195,7 @@ export default class Evento extends React.Component {
 
 const styles = StyleSheet.create({
   scrollView: {
-    backgroundColor: 'white',
+    backgroundColor: '#7C9EA5',
   },
   viewLeft: {
     flex: 1,
@@ -216,7 +216,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginTop: 20,
     paddingTop: 10,
-    backgroundColor: 'white',
+    backgroundColor: '#7C9EA5',
     flexDirection: 'row',
   },
   buttonHeader: {
@@ -244,14 +244,14 @@ const styles = StyleSheet.create({
   viewFormulario: {
     borderWidth: 0.5,
     borderRadius: 25,
-    borderColor: 'black',
+    borderColor: '#001726',
     borderBottomWidth: 1,
-    shadowColor: 'black',
+    shadowColor: '#001726',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.8,
     shadowRadius: 2,
     padding: 25,
-    backgroundColor: 'white',
+    backgroundColor: '#EAF0F2',
     elevation: 1,
     marginLeft: 10,
     marginRight: 10,
@@ -260,13 +260,13 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   viewCalendaio: {
-    backgroundColor: 'white',
     borderRadius: 25,
     padding: 5,
     marginLeft: 10,
     marginTop: 20,
   },
   textInputFormulario: {
+    backgroundColor:'white',
     height: 40,
     borderColor: '#d4d4d4',
     borderWidth: 1,
