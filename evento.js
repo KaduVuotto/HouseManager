@@ -106,20 +106,6 @@ export default class Evento extends React.Component {
               {/*body*/}
               <KeyboardAvoidingView behavior="padding" enabled>
 
-                {/*Data */}
-                <View style={styles.viewCalendaio}>
-                  <View style={styles.alternativeLayoutButtonContainer}>
-                    <Button
-                      title='Calendário'
-                      color='#A1ACB3'
-                      onPress={this.showDateTimePicker} />
-                    <DateTimePicker
-                      isVisible={this.state.isDateTimePickerVisible}
-                      onConfirm={this.handleDatePicked}
-                      onCancel={this.hideDateTimePicker}
-                    />
-                  </View>
-                </View>
 
                 <View style={styles.viewFormulario}>
                   <Text style={styles.textCamposFormulario}>Nome: </Text>
@@ -131,53 +117,69 @@ export default class Evento extends React.Component {
                     value={this.state.textEvento}
                   />
                   <Text style={styles.textCamposFormulario}>Prioridade: </Text>
-                  <View styles={{flex: 4}}>
+                  <View styles={{ flex: 4 }}>
                     <View style={styles.alternativeLayoutButtonContainer}>
-                      <View style={styles.viewButtonFour}><Button title="1" color="#FF5E5B" /></View>
-                      <View style={styles.viewButtonFour}><Button title="2" color="#E6F4FF" /></View>
-                      <View style={styles.viewButtonFour}><Button title="3" color="#B3B298" /></View>
-                      <View style={styles.viewButtonFour}><Button title="4" color="#8FA4B3" /></View>
+                      <View style={styles.viewButtonFour}><Button title="1" color="#FF543F" /></View>
+                      <View style={styles.viewButtonFour}><Button title="2" color="#FFD967" /></View>
+                      <View style={styles.viewButtonFour}><Button title="3" color="#7ECC79" /></View>
+                      <View style={styles.viewButtonFour}><Button title="4" color="#4A51B8" /></View>
                     </View>
                   </View>
-                  <Text style={styles.textCamposFormulario}>Data inicial: </Text>
-                  <TextInputMask
-                    placeholder='DD/MM/AAAA'
-                    style={styles.textInputFormulario}
-                    type={'datetime'}
-                    options={{
-                      format: 'DD/MM/YYYY'
-                    }}
-                    value={this.state.dt}
-                    onChangeText={text => {
-                      this.setState({
-                        dt: text
-                      })
-                    }}
-                  />
-                  <Text style={styles.textCamposFormulario}>Data final: </Text>
-                  <TextInputMask
-                    placeholder='DD/MM/AAAA'
-                    style={styles.textInputFormulario}
-                    type={'datetime'}
-                    options={{
-                      format: 'DD/MM/YYYY'
-                    }}
-                    value={this.state.dt}
-                    onChangeText={text => {
-                      this.setState({
-                        dt: text
-                      })
-                    }}
-                  />
 
+                  <View style={styles.viewCalendaio}>
+                    <View style={styles.alternativeLayoutButtonContainer}>
+                      <Button
+                        title='Calendário'
+                        color='#3BB383'
+                        onPress={this.showDateTimePicker} />
+                      <DateTimePicker
+                        isVisible={this.state.isDateTimePickerVisible}
+                        onConfirm={this.handleDatePicked}
+                        onCancel={this.hideDateTimePicker}
+                      />
+                    </View>
+
+                    <Text style={styles.textCamposFormulario}>Data inicial: </Text>
+                    <TextInputMask
+                      placeholder='DD/MM/AAAA'
+                      style={styles.textInputFormulario}
+                      type={'datetime'}
+                      options={{
+                        format: 'DD/MM/YYYY'
+                      }}
+                      value={this.state.dt}
+                      onChangeText={text => {
+                        this.setState({
+                          dt: text
+                        })
+                      }}
+                    />
+                    <Text style={styles.textCamposFormulario}>Data final: </Text>
+                    <TextInputMask
+                      placeholder='DD/MM/AAAA'
+                      style={styles.textInputFormulario}
+                      type={'datetime'}
+                      options={{
+                        format: 'DD/MM/YYYY'
+                      }}
+                      value={this.state.dt}
+                      onChangeText={text => {
+                        this.setState({
+                          dt: text
+                        })
+                      }}
+                    />
+                  </View>
 
                   <View style={styles.alternativeLayoutButtonContainer}>
-                    <Button
+                    <TouchableOpacity
                       onPress={() => this.register()}
                       title="Salvar Agenda"
-                      color="#A1ACB3"
-                      accessibilityLabel="Salvar a agenda"
-                    />
+                      color="#F2F2F2"
+                      accessibilityLabel="Salvar a agenda">
+                      <Text style={{ color: '#5F6368' }}>Salvar Agenda</Text>
+                    </TouchableOpacity>
+
                   </View>
 
                 </View>
@@ -193,7 +195,7 @@ export default class Evento extends React.Component {
 
 const styles = StyleSheet.create({
   scrollView: {
-    backgroundColor: '#A1ACB3',
+    backgroundColor: 'white',
   },
   viewLeft: {
     flex: 1,
@@ -214,7 +216,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginTop: 20,
     paddingTop: 10,
-    backgroundColor: '#A1ACB3',
+    backgroundColor: 'white',
     flexDirection: 'row',
   },
   buttonHeader: {
@@ -240,9 +242,20 @@ const styles = StyleSheet.create({
     fontWeight: '500',
   },
   viewFormulario: {
-    backgroundColor: 'white',
+    borderWidth: 0.5,
     borderRadius: 25,
+    borderColor: 'black',
+    borderBottomWidth: 1,
+    shadowColor: 'black',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
     padding: 25,
+    backgroundColor: 'white',
+    elevation: 1,
+    marginLeft: 10,
+    marginRight: 10,
+    marginTop: 10,
     marginTop: 5,
     marginBottom: 10,
   },
@@ -250,10 +263,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     borderRadius: 25,
     padding: 5,
-    marginLeft: 85,
-    marginRight: 85,
-    marginTop: 5,
-    marginBottom: 5,
+    marginLeft: 10,
+    marginTop: 20,
   },
   textInputFormulario: {
     height: 40,
@@ -263,6 +274,7 @@ const styles = StyleSheet.create({
   },
   textCamposFormulario: {
     marginTop: 5,
+    marginLeft: 10,
     fontSize: 18,
   },
   alternativeLayoutButtonContainer: {
